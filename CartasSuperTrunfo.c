@@ -6,7 +6,7 @@ int main() {
     char estadoCarta1, estadoCarta2;
     char codigoDaCarta1[50], nomeDaCidadeCarta1[50], codigoDaCarta2[50], nomeDaCidadeCarta2[50];
     int populacaoCarta1, nPontoTuristicoCarta1, populacaoCarta2, nPontoTuristicoCarta2;
-    float areaCarta1, pibCarta1, densidadeCarta1, perCapitaCarta1, areaCarta2, pibCarta2, densidadeCarta2, perCapitaCarta2;
+    float areaCarta1, pibCarta1, densidadeCarta1, perCapitaCarta1, areaCarta2, pibCarta2, densidadeCarta2, perCapitaCarta2, superpoderCarta1, superpoderCarta2;
 
     printf("Carta 1 \n");
     printf("Digite a primeira letra do Estado de A a H: \n");
@@ -45,9 +45,56 @@ int main() {
     densidadeCarta2 = populacaoCarta2 / areaCarta2;
     perCapitaCarta2 = pibCarta2 / populacaoCarta2;
 
-    printf("Carta 1: \nEstado: %c\nCódigo: %c%s\nNome da Cidade: %s\nPopulação: %i \nárea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de pontos turísticos: %i\n", estadoCarta1, estadoCarta1, codigoDaCarta1, nomeDaCidadeCarta1, populacaoCarta1, areaCarta1, pibCarta1, nPontoTuristicoCarta1);
+    superpoderCarta1 = (float)populacaoCarta1 + areaCarta1 + pibCarta1 + (float)nPontoTuristicoCarta1 + perCapitaCarta1 + (1 / densidadeCarta1);
+    superpoderCarta2 = (float)populacaoCarta2 + areaCarta2 + pibCarta2 + (float)nPontoTuristicoCarta2 + perCapitaCarta2 + (1 / densidadeCarta2);
+
+    printf("\nCarta 1: \nEstado: %c\nCódigo: %c%s\nNome da Cidade: %s\nPopulação: %i \nárea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de pontos turísticos: %i\n", estadoCarta1, estadoCarta1, codigoDaCarta1, nomeDaCidadeCarta1, populacaoCarta1, areaCarta1, pibCarta1, nPontoTuristicoCarta1);
     printf("Densidade populacional: %.2f\nPIB per Capita: %.2f\n", densidadeCarta1, perCapitaCarta1);
     printf("\nCarta 2: \nEstado: %c\nCódigo: %c%s\nNome da Cidade: %s\nPopulação: %i \nárea: %.2f km²\nPIB: %.2f bilhões de reais\nNúmero de pontos turísticos: %i\n", estadoCarta2, estadoCarta2, codigoDaCarta2, nomeDaCidadeCarta2, populacaoCarta2, areaCarta2, pibCarta2, nPontoTuristicoCarta2);
     printf("Densidade populacional: %.2f\nPIB per Capita: %.2f\n", densidadeCarta2, perCapitaCarta2);
+    printf("\nComparação das cartas: \n");
+
+    if (populacaoCarta1 > populacaoCarta2)
+    {
+        printf("População: Carta 1 venceu (1) \n");
+    }
+    else printf("População: Carta 2 venceu (0) \n");
+
+    if (areaCarta1 > areaCarta2)
+    {
+        printf("Àrea: Carta 1 venceu (1) \n");
+    }
+    else printf("Àrea: Carta 2 venceu (0) \n");
+
+    if (pibCarta1 > pibCarta2)
+    {
+        printf("PIB: Carta 1 venceu (1) \n");
+    }
+    else printf("PIB: Carta 2 venceu (0) \n");
+
+    if (nPontoTuristicoCarta1 > nPontoTuristicoCarta2)
+    {
+        printf("Pontos turísticos: Carta 1 venceu (1) \n");
+    }
+    else printf("Pontos turíticos: Carta 2 venceu (0) \n");
+
+    if (densidadeCarta1 < densidadeCarta2)
+    {
+        printf("Densidade populacional: Carta 1 venceu (1) \n");
+    }
+    else printf("Densidade populacional: Carta 2 venceu (2) \n");
+
+    if (perCapitaCarta1 > perCapitaCarta2)
+    {
+        printf("PIB perCapita: Carta 1 venceu (1) \n");
+    }
+    else printf("PIB perCapita: Carta 2 venceu (0) \n");
+
+    if (superpoderCarta1 > superpoderCarta2)
+    {
+        printf("Superpoder: Carta 1 venceu (1) \n");
+    }
+    else printf("Superpoder: Carta 2 venceu (0) \n");
+
     return 0;
 }
